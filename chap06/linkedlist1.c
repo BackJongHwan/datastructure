@@ -13,6 +13,7 @@ void error(char *message)
 	fprintf(stderr, "%s\n", message);
 	exit(1);
 }
+
 ListNode* insert_first(ListNode *head, int value)
 {
 	ListNode *p = (ListNode *)malloc(sizeof(ListNode));	//(1)
@@ -58,15 +59,35 @@ void print_list(ListNode *head)
 	printf("NULL \n");
 }
 
+element get_entry(ListNode *head, int index){
+	
+	for(int i = 0; i < index; i++){
+		head = head->link;
+	}
+
+	return head->data;
+
+}
+
+int get_length(ListNode *head)
+{
+	int len = 0;
+	for(ListNode* p = head; p != NULL; p = p->link)
+		len++;
+	return len;
+}
+
 // 테스트 프로그램
 int main(void)
 {
 	ListNode *head = NULL;
-
+	int length;
 	for (int i = 0; i < 5; i++) {
 		head = insert_first(head, i);
 		print_list(head);
 	}
+	length = get_length(head);
+	printf("len is %d\n", length);
 	for (int i = 0; i < 5; i++) {
 		head = delete_first(head);
 		print_list(head);
