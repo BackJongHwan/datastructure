@@ -51,16 +51,33 @@ ListNode* insert_last(ListNode* head, element data)
 	}
 	return head;	// 변경된 헤드 포인터를 반환한다. 
 }
+
+int get_length(ListNode *head){
+	if(head == NULL){
+		return 0;
+	}else{
+		ListNode *p = head;
+		int len = 0;
+		do{
+			len++;
+			p = p->link;
+
+		}while(p != head);
+		return len;
+	}
+}
 // 원형 연결 리스트 테스트 프로그램
 int main(void)
 {
 	ListNode *head = NULL;
-
+	int len;
 	// list = 10->20->30->40
 	head = insert_last(head, 20);
 	head = insert_last(head, 30);
 	head = insert_last(head, 40);
 	head = insert_first(head, 10);
 	print_list(head);
+	len = get_length(head);
+	printf("len is %d\n", len);
 	return 0;
 }
