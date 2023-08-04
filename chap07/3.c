@@ -64,6 +64,22 @@ Node* serch(Node *head, element data){
     return 0;
 }
 
+int get_size(Node *head){
+
+    int size = 0;
+    if(head == NULL){
+        return size;
+    }else{
+        Node *p = head;
+        do{
+            size++;
+            p = p->link;
+
+        }while(p != head);
+    }
+    return size;
+}
+
 int main()
 {
 	Node *head = NULL;
@@ -73,7 +89,14 @@ int main()
 	insert_last(&head, 40);
 	insert_first(&head, 10);
     Node *p = serch(head, 24);
+    if(p == NULL){
+        printf("p is NULL\n");
+    }else{    
+        printf("%d\n", p->data);
+    }
     p = serch(head, 40);
     printf("%d\n", p->data);
 	print_list(head);
+    int size = get_size(head);
+    printf("size is %d\n", size);
 }

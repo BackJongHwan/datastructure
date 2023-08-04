@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include<string.h>
 
 typedef int element;
 typedef struct DListNode {	// 이중연결 노드 타입
@@ -28,12 +29,13 @@ void print_dlist(DListNode* phead)
 void dinsert(DListNode *before, element data)
 {
 	DListNode *newnode = (DListNode *)malloc(sizeof(DListNode));
-	strcpy(newnode->data, data);
+	newnode->data = data;
 	newnode->llink = before;
 	newnode->rlink = before->rlink;
 	before->rlink->llink = newnode;
 	before->rlink = newnode;
 }
+
 // 노드 removed를 삭제한다.
 void ddelete(DListNode* head, DListNode* removed)
 {
