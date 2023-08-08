@@ -8,7 +8,6 @@ typedef struct TreeNode {
 	int is_thread;	// 스레드이면 TRUE
 } TreeNode;
 
-
 //		     G
 //	     C		  F
 //    A	   B   D     E
@@ -45,6 +44,7 @@ void thread_inorder(TreeNode * t)
 		q = find_successor(q); // 후속자 함수 호출
 	} while (q);			// NULL이 아니면
 }
+
 int main(void)
 {
 	// 스레드 설정 
