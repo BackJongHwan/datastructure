@@ -27,7 +27,6 @@ TreeNode * find_successor(TreeNode * p)
 	// 만약 오른쪽 포인터가 NULL이거나 스레드이면 오른쪽 포인터를 반환
 	if (q == NULL || p->is_thread == TRUE)
 		return q;
-
 	// 만약 오른쪽 자식이면 다시 가장 왼쪽 노드로 이동
 	while (q->left != NULL) q = q->left;
 	return q;

@@ -17,6 +17,18 @@ TreeNode * search(TreeNode * node, int key)
 	else
 		return search(node->right, key);
 }
+//반복적인 탐색 함수
+TreeNode * search_loop(TreeNode *node, int key){
+	while(!node){
+		if(key == node->key) return node;
+		else if(key < node->key)
+			node = node->left;
+		else if(key > node->key)
+			node = node->right;
+	}
+	return node;
+}
+
 TreeNode * new_node(int item)
 {
 	TreeNode * temp = (TreeNode *)malloc(sizeof(TreeNode));
@@ -24,6 +36,7 @@ TreeNode * new_node(int item)
 	temp->left = temp->right = NULL;
 	return temp;
 }
+
 TreeNode * insert_node(TreeNode * node, int key)
 {
 	// 트리가 공백이면 새로운 노드를 반환한다. 
@@ -38,6 +51,7 @@ TreeNode * insert_node(TreeNode * node, int key)
 	// 변경된 루트 포인터를 반환한다. 
 	return node;
 }
+
 TreeNode * min_value_node(TreeNode * node)
 {
 	TreeNode * current = node;
