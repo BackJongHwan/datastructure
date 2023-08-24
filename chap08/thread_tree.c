@@ -20,10 +20,10 @@ TreeNode n6 = { 'F', &n4,  &n5, 0 };
 TreeNode n7 = { 'G', &n3,  &n6, 0 };
 TreeNode * exp = &n7;
 
-TreeNode * find_successor(TreeNode * p)
+TreeNode * find_successor(TreeNode *p)
 {
 	// q는 p의 오른쪽 포인터
-	TreeNode * q = p->right;
+	TreeNode *q = p->right;
 	// 만약 오른쪽 포인터가 NULL이거나 스레드이면 오른쪽 포인터를 반환
 	if (q == NULL || p->is_thread == TRUE)
 		return q;
